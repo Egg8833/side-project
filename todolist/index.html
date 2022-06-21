@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="todostudent.css" />
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<div class="container">
+  <h1>TODO LIST</h1>
+  <div class="card input">
+    <input type="text" placeholder="請輸入待辦事項" class="text" />
+    <a href="#" class="btn_add">+</a>
+  </div>
+  <div class="card card_list">
+    <ul class="tab" id="tab">
+      <li class="active" data-tab="all">全部</li>
+      <li data-tab="work">待完成</li>
+      <li data-tab="done">已完成</li>
+    </ul>
+    <div class="cart_content">
+      <ul class="list">
+        <!--         <li>
+          <label class="checkbox" for="">
+            <input type="checkbox" />
+            <span>把冰箱發霉的檸檬拿去丟</span>
+          </label>
+          <a href="#" class="delete"></a>
+        </li>
+        <li>
+          <label class="checkbox" for="">
+            <input type="checkbox" />
+            <span>把冰箱發霉的檸檬拿去丟</span>
+          </label>
+          <a href="#" class="delete"></a>
+        </li>
+        <li>
+          <label class="checkbox" for="">
+            <input type="checkbox" />
+            <span>把冰箱發霉的檸檬拿去丟</span>
+          </label>
+          <a href="#" class="delete"></a>
+        </li>
+        <li>
+          <label class="checkbox" for="">
+            <input type="checkbox" />
+            <span>把冰箱發霉的檸檬拿去丟</span>
+          </label>
+          <a href="#" class="delete"></a>
+        </li> -->
+      </ul>
+      <div class="list_footer">
+        <p><span class="workNum"></span> 個待完成項目</p>
+        <a href="#" id="deleteBTN" class="delete-btn">清除已完成項目</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="tostudent.js"></script>

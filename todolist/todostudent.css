@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/earlyaccess/notosanstc.css");
+@import url("https://fonts.googleapis.com/css?family=Baloo+Tamma+2:600, 700");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100vh;
+  background: #eee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #333;
+  background-image: linear-gradient(174deg, #c5e0ed 2%, #c5e0ed 46%, #ffffff 46%, #ffffff 100%, #e8e8e8 100%);
+  background-attachment: fixed;
+  letter-spacing: 0.07em;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-family: "Baloo Tamma 2";
+  letter-spacing: 0.5rem;
+  font-weight: bold;
+}
+
+@media (max-width: 575px) {
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.container {
+  margin: 3rem auto 1.5rem auto;
+  padding: 0 12px;
+  width: 500px;
+}
+
+@media (max-width: 575px) {
+  .container {
+    margin-top: 1.5rem;
+  }
+}
+
+.card {
+  margin-bottom: 0.5rem;
+  max-width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #fff;
+  -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+input[type="text"] {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+  padding-right: 1rem;
+  color: #333;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+  color: #9f9a91;
+  font-size: 14px;
+}
+
+input[type="text"]:-ms-input-placeholder {
+  color: #9f9a91;
+  font-size: 14px;
+}
+
+input[type="text"]::-ms-input-placeholder {
+  color: #9f9a91;
+  font-size: 14px;
+}
+
+input[type="text"]::placeholder {
+  color: #9f9a91;
+  font-size: 14px;
+}
+
+.input {
+  padding: 4px 4px 4px 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.btn_add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #333;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.card_list {
+  padding: 0;
+}
+
+.tab {
+  color: #9f9a91;
+  font-size: 14px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.tab li {
+  padding: 1rem;
+  width: 100%;
+  cursor: pointer;
+  border-bottom: 2px solid #efefef;
+}
+
+.tab li.active {
+  border-bottom: 2px solid #333;
+  color: #333;
+  font-weight: bold;
+}
+
+.cart_content {
+  padding: 0.5rem 1rem 1rem 1rem;
+}
+
+@media (max-width: 575px) {
+  .cart_content {
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+  }
+}
+
+.list li {
+  position: relative;
+  padding-right: 2rem;
+}
+
+@media (max-width: 575px) {
+  .list li {
+    padding-right: 0;
+  }
+}
+
+.list li a.delete {
+  position: absolute;
+  opacity: 0;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #333;
+  display: block;
+  width: 1rem;
+  height: 100%;
+  background: url("https://i.imgur.com/7Q4RjFx.jpg") no-repeat center/contain;
+}
+
+@media (max-width: 575px) {
+  .list li a.delete {
+    opacity: 1;
+    width: 12px;
+    height: 100%;
+  }
+}
+
+.list li:hover a.delete {
+  opacity: 1;
+}
+
+@media (max-width: 575px) {
+  .list li:hover a.delete {
+    opacity: .75;
+  }
+}
+
+.list_footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1.5rem 2rem 1rem 0.5rem;
+  font-size: 14px;
+}
+
+.list_footer a {
+  color: #9f9a91;
+}
+
+@media (max-width: 575px) {
+  .list_footer {
+    padding: 1.5rem 0 1rem 0.5rem;
+  }
+}
+
+.checkbox {
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100%;
+  display: block;
+  padding-left: 44px;
+  cursor: pointer;
+}
+
+.checkbox span {
+  display: block;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  line-height: 1.5;
+}
+
+@media (max-width: 575px) {
+  .checkbox span {
+    padding-right: 1rem;
+  }
+}
+
+.checkbox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.checkbox span::before {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%) scale(1);
+          transform: translateY(-50%) scale(1);
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  pointer-events: none;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.checkbox span::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 27%;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  height: 15px;
+  width: 0.5rem;
+  border-radius: 1px;
+  border-bottom: 3px solid #c5e0ed;
+  border-right: 3px solid #c5e0ed;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.checkbox input:checked ~ span {
+  color: #9f9a91;
+  text-decoration: line-through;
+}
+
+.checkbox input:checked ~ span::before {
+  border-color: transparent;
+  -webkit-transform: translateY(-50%) scale(0);
+          transform: translateY(-50%) scale(0);
+}
+
+.checkbox input:checked ~ span::after {
+  opacity: 1;
+}
+/*# sourceMappingURL=todostudent.css.map */
