@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="5f.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="row mb-5">
+        <div class="col-4">
+          <h2>空氣品質指標 (AQI)</h2>
+          <select
+            name="location"
+            id="location"
+            class="custom-select border"
+            data-zone
+          >
+            <option value=""></option>
+          </select>
+        </div>
+        <div class="col-8">
+          <table class="table table-bordered">
+            <thead>
+              <tr class="text-center font-weight-bolder">
+                <th width="16.6%" class="bg-primary">0～50</th>
+                <th width="16.6%" class="bg-warning">51～100</th>
+                <th width="16.6%" class="bg-success">101～150</th>
+                <th width="16.6%" class="bg-info">151～200</th>
+                <th width="16.6%" class="bg-secondary">201～300</th>
+                <th width="16.6%" class="bg-danger">301～400</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center font-weight-bolder">
+                <th>良好</th>
+                <td>普通</td>
+                <td>對敏感族群 不健康</td>
+                <td>對所有族群 不健康</td>
+                <td>非常不健康</td>
+                <td>危害</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        class="d-flex justify-content-between align-items-center dashed mb-4"
+      >
+        <h2 class="mb-0 text" data-country>基隆縣</h2>
+        <p class="mb-0 font-weight-bolder data-time">2019-01-24 14:00 更新</p>
+      </div>
+      <div class="row">
+        <div class="col-4" data-list>
+          <div
+            class="btn-group btn-block rounded-0"
+            role="group"
+            aria-label="Basic example"
+            data-btn
+            id="cityData"
+          >
+            <button type="button" class="btn py-4 border rounded-0 mb-0">
+              ${item.SiteName}
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary border rounded-0 mb-0"
+              data-aqi
+            >
+              ${item.AQI}
+            </button>
+          </div>
+
+          <ul class="p-4 px-3 border aqi-list border-top-0" id="detail">
+            <li class="d-flex align-items-end pb-3 mb-3">
+              <h4 class="mb-0 mr-2">臭氧</h4>
+              <span>O3 (ppb)</span>
+              <h4 class="ml-auto mb-0">${item.O3}</h4>
+            </li>
+            <li class="d-flex align-items-end pb-3 mb-3">
+              <h4 class="mb-0 mr-2">懸浮微粒</h4>
+              <span>PM10 (μg/m³)</span>
+              <h4 class="ml-auto mb-0">${item.PM10}</h4>
+            </li>
+            <li class="d-flex align-items-end pb-3 mb-3">
+              <h4 class="mb-0 mr-2">細懸浮微粒</h4>
+              <span>PM2.5 (μg/m³)</span>
+              <h4 class="ml-auto mb-0">${item['PM2.5']}</h4>
+            </li>
+            <li class="d-flex align-items-end pb-3 mb-3">
+              <h4 class="mb-0 mr-2">一氧化碳</h4>
+              <span>CO (ppm)</span>
+              <h4 class="ml-auto mb-0">${item.CO}</h4>
+            </li>
+            <li class="d-flex align-items-end pb-3 mb-3">
+              <h4 class="mb-0 mr-2">二氧化硫</h4>
+              <span>SO2 (ppb)</span>
+              <h4 class="ml-auto mb-0">${item.SO2}</h4>
+            </li>
+            <li class="d-flex align-items-end pb-3 mb-3">
+              <h4 class="mb-0 mr-2">二氧化氮</h4>
+              <span>NO2 (ppb)</span>
+              <h4 class="ml-auto mb-0">${item.NO2}</h4>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 右邊欄位 城市 -->
+        <div class="col-8">
+          <div class="row" data-site id="siteData">
+            <div class="col-6 mb-4">
+              <div
+                class="btn-group btn-block rounded-0"
+                role="group"
+                aria-label="Basic example"
+                data-btn
+              >
+                <button
+                  type="button"
+                  class="btn py-4 border rounded-0 mb-0"
+                  data-btn-site
+                >
+                  ${item.SiteName}
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary border rounded-0 mb-0"
+                  data-aqi
+                >
+                  ${item.AQI}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-dark">
+      <div class="container">
+        <div class="d-flex justify-content-between py-3">
+          <p class="text-white mb-0">資料來源：行政院環境保護署</p>
+          <p class="text-white mb-0">
+            Copyright © 2019 HexSchool. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="5F.js"></script>
+</html>

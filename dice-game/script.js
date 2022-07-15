@@ -13,10 +13,10 @@ const btnHold = document.querySelector('.btn--hold');
 let scores,current,activePlayer,play,currentScore
 
 const init =()=>{
-     scores=[0,0];
-     currentScore =0;
-     activePlayer=0;
-     play =true; 
+    scores=[0,0];
+    currentScore =0;
+    activePlayer=0;
+    play =true; 
     score0El.textContent=0;
     score1El.textContent=0;
     current0El.textContent=0;
