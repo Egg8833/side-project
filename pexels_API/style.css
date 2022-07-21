@@ -156,9 +156,7 @@ img {
     display: none;
 }
 
-.mx-2{
-    margin:20px 0;
-}
+
 button{
     width: 90px;
    padding: 10px;
@@ -180,4 +178,14 @@ button{
 footer{
     padding: 15px;
     background-color: rgb(188, 187, 187);
+}
+#search{
+  width: 300px;
+}
+
+.mx-2{
+  margin:20px 0;
+}
+.mx-4{
+  margin: 40px 0;
 }
