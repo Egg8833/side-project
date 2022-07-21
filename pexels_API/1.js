@@ -22,7 +22,11 @@ async function render(url){
         let photos =data.data.photos;
         console.log(data);
         photos.forEach(d => {   
-            str+=`<li><img src="${d.src.large}" alt="" /></li>`  
+
+            str+=`
+            <li>
+            <p>${d.photographer}</p>
+            <img src="${d.src.large}" alt="" /></li>`  
             
         });
         loading.classList.add('visible')
