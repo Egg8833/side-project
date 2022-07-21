@@ -14,23 +14,26 @@ getPhoto()
 // 第二支2 563492ad6f917000010000013470d7a9a7b44b32935140c977f9ef82
 
 async function render(url){
-    let data = await axios.get(url,{
-        headers:{
-            Authorization:auth,
-        }})
-        let str=''
-        let photos =data.data.photos;
-        console.log(data);
-        photos.forEach(d => {   
-
-            str+=`
-            <li>
-            <p>${d.photographer}</p>
-            <img src="${d.src.large}" alt="" /></li>`  
-            
-        });
-        loading.classList.add('visible')
-        ulBox.insertAdjacentHTML('beforeend',str)
+    try{
+        let data = await axios.get(url,{
+            headers:{
+                Authorization:auth,
+            }})
+            let str=''
+            let photos =data.data.photos;
+            console.log(data);
+            photos.forEach(d => {   
+                str+=`
+                <li>
+                <p>${d.photographer}</p>
+                <img src="${d.src.large}" alt="" /></li>`         
+            });
+            loading.classList.add('visible')
+            ulBox.insertAdjacentHTML('beforeend',str)
+        }
+    catch(err){
+            console.log(err);
+        }
 }
 
 
