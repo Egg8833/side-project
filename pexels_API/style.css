@@ -151,6 +151,7 @@ img {
   height: 100%;
   vertical-align: middle;
   object-fit: cover;
+  border-radius: 10px;
 }
 .visible{
     display: none;
