@@ -1,5 +1,7 @@
 
-const url='https://data.epa.gov.tw/api/v1/aqx_p_432?limit=1000&api_key=9be7b239-557b-4c10-9775-78cadfc555e9&sort=ImportDate%20desc&format=json'
+const url='https://data.epa.gov.tw/api/v2/aqx_p_432?api_key=e304f3f6-9d90-4208-b460-133646a956ce'
+
+
 const local =document.querySelector('#location')
 const siteData =document.querySelector('#siteData')
 let site =[]
@@ -12,9 +14,9 @@ let nowTime='';
 
 function getData(){
   axios.get(url).then((res) => {
-    data =res.data.records;
+    data =res.data.records
     console.log(data);
-    nowTime =data[0].PublishTime;
+    nowTime =data[0].publishtime;
     console.log(nowTime);
    
 
@@ -45,7 +47,7 @@ function getTime(){
 
 function getCityData(){
   data.forEach(item=> {
-  newData.push(item.County); })
+  newData.push(item.county); })
 
   // 塞選22筆縣市資料
   cityData =newData.filter((item,index,arr)=>{
@@ -84,14 +86,14 @@ function randerFirstCity(data){
     cityName.innerHTML =`
 
     <button type="button" class="btn py-4 border rounded-0 mb-0">
-    ${item.SiteName}
+    ${item.sitename}
   </button>
   <button
     type="button"
     class="btn btn-primary border rounded-0 mb-0"
     data-aqi
   >
-    ${item.AQI}
+    ${item.aqi}
   </button>
     
     `
@@ -106,37 +108,37 @@ function detailData(data){
     <li class="d-flex align-items-end pb-3 mb-3">
     <h4 class="mb-0 mr-2">城市</h4>
     <span>O3 (ppb)</span>
-    <h4 class="ml-auto mb-0">${item.SiteName}</h4>
+    <h4 class="ml-auto mb-0">${item.sitename}</h4>
   </li>
     <li class="d-flex align-items-end pb-3 mb-3">
     <h4 class="mb-0 mr-2">臭氧</h4>
     <span>O3 (ppb)</span>
-    <h4 class="ml-auto mb-0">${item.O3}</h4>
+    <h4 class="ml-auto mb-0">${item.o3}</h4>
   </li>
   <li class="d-flex align-items-end pb-3 mb-3">
     <h4 class="mb-0 mr-2">懸浮微粒</h4>
     <span>PM10 (μg/m³)</span>
-    <h4 class="ml-auto mb-0">${item.PM10}</h4>
+    <h4 class="ml-auto mb-0">${item.pm10}</h4>
   </li>
   <li class="d-flex align-items-end pb-3 mb-3">
     <h4 class="mb-0 mr-2">細懸浮微粒</h4>
     <span>PM2.5 (μg/m³)</span>
-    <h4 class="ml-auto mb-0">${item['PM2.5']}</h4>
+    <h4 class="ml-auto mb-0">${item['pm2.5']}</h4>
   </li>
   <li class="d-flex align-items-end pb-3 mb-3">
     <h4 class="mb-0 mr-2">一氧化碳</h4>
     <span>CO (ppm)</span>
-    <h4 class="ml-auto mb-0">${item.CO}</h4>
+    <h4 class="ml-auto mb-0">${item.co}</h4>
   </li>
   <li class="d-flex align-items-end pb-3 mb-3">
     <h4 class="mb-0 mr-2">二氧化硫</h4>
     <span>SO2 (ppb)</span>
-    <h4 class="ml-auto mb-0">${item.SO2}</h4>
+    <h4 class="ml-auto mb-0">${item.so2}</h4>
   </li>
   <li class="d-flex align-items-end pb-3 mb-3">
     <h4 class="mb-0 mr-2">二氧化氮</h4>
     <span>NO2 (ppb)</span>
-    <h4 class="ml-auto mb-0">${item.NO2}</h4>
+    <h4 class="ml-auto mb-0">${item.no2}</h4>
   </li>
     `
     
@@ -146,7 +148,7 @@ function detailData(data){
 
 function randerSiteData(){
   site = data.filter((item)=>{
-    return item.County ==local.value;
+    return item.county ==local.value;
   })
   
   let str ='';
@@ -162,16 +164,16 @@ function randerSiteData(){
       <button
         type="button"
         class="btn py-4 border rounded-0 mb-0"
-        data-site="${item.SiteName}"
+        data-site="${item.sitename}"
       >
-        ${item.SiteName}
+        ${item.sitename}
       </button>
       <button
         type="button"
         class="btn btn-primary border rounded-0 mb-0"
         data-aqi
       >
-        ${item.AQI}
+        ${item.aqi}
       </button>
     </div>
   </div> `
@@ -183,7 +185,7 @@ function randerSiteData(){
 siteData.addEventListener('click',(e)=>{
   console.log(e.target.dataset.site);
   let siteData = data.filter((item)=>{
-      return item.SiteName ===e.target.dataset.site
+      return item.sitename ===e.target.dataset.site
   })
   console.log(siteData);
   detailData(siteData)
