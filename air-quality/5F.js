@@ -1,9 +1,7 @@
-
 const url='https://data.epa.gov.tw/api/v2/aqx_p_432?api_key=e304f3f6-9d90-4208-b460-133646a956ce'
-
-
 const local =document.querySelector('#location')
 const siteData =document.querySelector('#siteData')
+let nowDate =document.querySelector('.data-time')
 let site =[]
 let data=[];
 let newData=[];
@@ -17,15 +15,8 @@ function getData(){
     data =res.data.records
     console.log(data);
     nowTime =data[0].publishtime;
-    console.log(nowTime);
-   
-
+    nowDate.innerHTML =`${nowTime} 更新`
     getCityData();
-    getTime();
-
-   
-   
-  
   }).catch((err) => {
     console.log(err);
     alert('資料錯誤，請稍後再嘗試')
@@ -33,17 +24,6 @@ function getData(){
 }
 
 getData();
-
-function getTime(){
-  now = nowTime.split(' ');
-  console.log(now);
-  time3=now[1].split('',5).join('');
-  date3 =now[0].split('/').join('-');
-  
-  console.log(time3);
-  console.log(date3);
-
-}
 
 function getCityData(){
   data.forEach(item=> {
@@ -82,9 +62,8 @@ local.addEventListener('click',(e)=>{
 
 function randerFirstCity(data){
   data.forEach((item)=>{
-    
+ 
     cityName.innerHTML =`
-
     <button type="button" class="btn py-4 border rounded-0 mb-0">
     ${item.sitename}
   </button>
@@ -94,10 +73,8 @@ function randerFirstCity(data){
     data-aqi
   >
     ${item.aqi}
-  </button>
-    
-    `
-   
+  </button>   
+    `  
   })
 }
 
